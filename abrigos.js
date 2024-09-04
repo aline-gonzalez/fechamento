@@ -22,20 +22,7 @@ export function abrirJanelaAbrigos() {
         <html>
         <head>
             <title>Gerenciamento de Abrigos</title>
-            <style>
-    body { 
-        font-family: Arial, sans-serif; 
-        margin: 0; 
-        padding: 20px; 
-        max-width: 600px; 
-        margin: 0 auto; /* Centraliza o conteúdo */
-        text-align: center; /* Centraliza o texto */
-    }
-    .abrigo-item { margin-bottom: 10px; }
-    .vaga-input { width: 60px !important; max-width: 60px !important; padding: 2px !important; box-sizing: border-box !important; margin-left: 10px; }
-    button { margin-top: 10px; }
-</style>
-
+            
         </head>
         <body>
             <h1>Gerenciamento de Abrigos</h1>
