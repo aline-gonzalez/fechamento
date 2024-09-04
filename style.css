@@ -10,10 +10,10 @@ body {
 
 /* Logo alinhado à esquerda */
 #smas-logo {
-    width: 370px; /* Aumenta a largura do logo */
-    height: auto; /* Mantenha a altura proporcional */
-    margin-left: 0; /* Alinhado à esquerda */
-    display: block;
+      width: 100%;  /* Ajusta o logo para preencher a largura da tela */
+      height: auto;  /* Mantém a proporção do logo */
+    margin: 0 auto; /* Centraliza o logo horizontalmente */
+    display: block;  /* Garante que o logo seja tratado como um bloco */
 }
 
 /* Removendo a caixa branca e mantendo o conteúdo alinhado à esquerda */
