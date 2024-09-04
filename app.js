@@ -24,6 +24,16 @@ document.getElementById('abrigoBtn').addEventListener('click', function(event) {
     abrirJanelaAbrigos();
 });
 
+// Função para abrir a janela de edição de cargos
+document.getElementById('editarCargosBtn').addEventListener('click', function() {
+    const novaJanela = window.open('edit_cargos.html', '_blank', 'width=600,height=400');
+    if (novaJanela) {
+        novaJanela.focus();
+    } else {
+        alert('Por favor, habilite pop-ups no seu navegador para acessar esta função.');
+    }
+});
+
 // Mostrar/ocultar campos baseados no turno selecionado
 document.getElementById('turnoManhaCheckbox').addEventListener('change', function() {
     const isChecked = this.checked;
