@@ -11,6 +11,7 @@ body {
 /* Logo alinhado à esquerda */
 #smas-logo {
       width: 100%;  /* Ajusta o logo para preencher a largura da tela */
+    max-width: 450px; /* Define um tamanho máximo para telas maiores */
       height: auto;  /* Mantém a proporção do logo */
     margin: 0 auto; /* Centraliza o logo horizontalmente */
     display: block;  /* Garante que o logo seja tratado como um bloco */
