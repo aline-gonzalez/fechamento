@@ -22,7 +22,113 @@ export function abrirJanelaAbrigos() {
         <html>
         <head>
             <title>Gerenciamento de Abrigos</title>
-            
+            <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        h1, h2 {
+            color: #0033a0;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label, select, input {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+            max-width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="text"] {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #0033a0;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button:hover {
+            background-color: #002080;
+        }
+
+        
+        .abrigo-item span {
+            font-size: 16px;
+            margin-bottom: 5px;
+            width: 100%;
+            display: inline-block;
+        }
+
+        .abrigo-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.vaga-input {
+    width: 60px;
+    padding: 5px;
+    box-sizing: border-box;
+    margin-left: 10px; /* Espaçamento entre o input e o nome do abrigo */
+}
+
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            h1, h2 {
+                font-size: 18px;
+            }
+
+            label, select, input {
+                font-size: 14px;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .abrigo-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .vaga-input {
+    width: 60px; /* Define um tamanho fixo para o input */
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+        }
+    </style>
+
         </head>
         <body>
             <h1>Gerenciamento de Abrigos</h1>
@@ -135,17 +241,18 @@ export async function carregarAbrigos() {
         const vagasInicio = doc.data().vagasInicio || ''; 
         const vagasFim = doc.data().vagasFim || ''; 
 
-        abrigosInicioHtml += `<div class="abrigo-item">
-            <span>${nomeAbrigo}</span>
-            <input type="number" class="vaga-input" id="inicio-${doc.id}" value="${vagasInicio}"
-                style="width: 60px !important; max-width: 60px !important; padding: 2px !important; box-sizing: border-box !important; margin-left: 10px;">
-        </div>`;
-        
-        abrigosFimHtml += `<div class="abrigo-item">
-            <span>${nomeAbrigo}</span>
-            <input type="number" class="vaga-input" id="fim-${doc.id}" value="${vagasFim}"
-                style="width: 60px !important; max-width: 60px !important; padding: 2px !important; box-sizing: border-box !important; margin-left: 10px;">
-        </div>`;
+        abrigosInicioHtml += `<div class="abrigo-item" style="margin-bottom: 10px; text-align: left;">
+    <span style="display: block; margin-bottom: 5px;">${nomeAbrigo}</span>
+    <input type="number" class="vaga-input" id="inicio-${doc.id}" value="${vagasInicio}"
+        style="width: 60px; padding: 5px; box-sizing: border-box; margin-left: 0;">
+</div>`;
+
+abrigosFimHtml += `<div class="abrigo-item" style="margin-bottom: 10px; text-align: left;">
+    <span style="display: block; margin-bottom: 5px;">${nomeAbrigo}</span>
+    <input type="number" class="vaga-input" id="fim-${doc.id}" value="${vagasFim}"
+        style="width: 60px; padding: 5px; box-sizing: border-box; margin-left: 0;">
+</div>`;
+
     });
 
     return { abrigosInicioHtml, abrigosFimHtml };
