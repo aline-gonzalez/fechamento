@@ -1,0 +1,201 @@
+/* Fundo cinza claro */
+body {
+    background-color: #e0e0e0; /* Tom mais acinzentado */
+    color: #333333; /* Cor do texto principal */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    text-align: left; /* Alinhamento à esquerda */
+}
+
+/* Logo alinhado à esquerda */
+#smas-logo {
+    width: 300px; /* Aumenta a largura do logo */
+    height: auto; /* Mantenha a altura proporcional */
+    margin-left: 0; /* Alinhado à esquerda */
+    display: block;
+}
+
+/* Removendo a caixa branca e mantendo o conteúdo alinhado à esquerda */
+.container {
+    max-width: 800px;
+    margin-left: 0; /* Mantém o conteúdo à esquerda */
+    padding: 20px;
+    background-color: transparent; /* Remove o fundo branco */
+    text-align: left;
+}
+
+/* Estilo para espaçamento */
+.espaco-entre {
+    margin-top: 20px;
+    display: block;
+}
+
+.espaco-final {
+    margin-top: 40px;
+    display: block;
+}
+
+.espaco-abaixo {
+    margin-top: 20px;
+}
+
+/* Estilo para os grupos de formulário */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    color: #0033a0; /* Azul Principal */
+    font-weight: bold;
+}
+
+/* Estilo para alinhamento horizontal dos campos de seleção */
+.form-inline {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-inline label {
+    margin-right: 10px;
+    color: #0033a0; /* Azul Principal */
+}
+
+/* Correção do alinhamento vertical dos checkboxes e selects */
+input[type="checkbox"],
+select {
+    vertical-align: middle;
+}
+
+/* Estilo para garantir que os campos dentro dos turnos fiquem um abaixo do outro */
+.turno-campos .form-group {
+    display: block;
+    width: 100%;
+}
+
+.turno-campos label {
+    display: block;
+    margin-bottom: 5px;
+    color: #0033a0; /* Azul Principal */
+}
+
+/* Estilo para os campos de entrada dentro dos turnos, com tamanho menor */
+.turno-campos input[type="text"],
+.turno-campos input[type="number"] {
+    width: 60px;  /* Ajuste de largura para campos menores */
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+/* Estilo para botões */
+button {
+    background-color: #0033a0; /* Azul Principal */
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #002080; /* Azul mais escuro para hover */
+}
+
+.espaco-abaixo-botao {
+    margin-bottom: 10px; /* Ajuste o valor conforme necessário */
+}
+
+/* Modal de confirmação */
+#confirmModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Certifique-se de que o z-index é suficientemente alto */
+}
+
+/* Estilo responsivo para telas menores (mobile) */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px; /* Tamanho de fonte ajustado para telas menores */
+    }
+
+    .form-group label,
+    .form-inline label {
+        font-size: 14px;
+    }
+
+    /* Ajusta o layout dos formulários para exibição em colunas, em vez de linha */
+    .form-inline {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .form-inline label {
+        margin-bottom: 5px;
+    }
+
+    /* Ajusta a largura dos inputs para preencher a largura da tela */
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        max-width: 100%; /* Garante que os inputs não excedam a largura da tela */
+    }
+
+    .turno-campos input[type="text"],
+    .turno-campos input[type="number"] {
+        width: 100%; /* Preenche a largura total em telas menores */
+        max-width: 100%;
+    }
+
+    /* Botões maiores e ajustados para celulares */
+    button {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    /* Espaçamento ajustado entre os elementos */
+    .espaco-entre, .espaco-final {
+        margin-top: 10px;
+    }
+
+    .espaco-abaixo {
+        margin-top: 15px;
+    }
+
+    /* Ajuste para o modal de confirmação em telas menores */
+    #confirmModal {
+        width: 90%;
+        max-width: 400px;
+    }
+}
+
+/* Estilos adicionais para cabeçalhos e títulos */
+h1, h2 {
+    color: #0033a0; /* Azul Principal */
+}
+
+hr {
+    border: 1px solid #0033a0; /* Linha divisora azul */
+}
+
+/* Estilo para fundo e contornos */
+input, select, textarea {
+    border: 1px solid #6699cc; /* Azul Claro para os contornos */
+    padding: 10px;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #0033a0; /* Azul Principal no foco */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 51, 160, 0.5); /* Sombra leve ao focar */
+}

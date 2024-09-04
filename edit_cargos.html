@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Cargos</title>
+</head>
+<body>
+    <h1>Editar Nomes dos Cargos</h1>
+    <form id="editCargosForm">
+        <label for="coordenadorGeral">Coordenador Geral:</label>
+        <input type="text" id="coordenadorGeral" name="coordenadorGeral" required><br><br>
+
+        <label for="assessoriaTecnica">Assessoria Técnica:</label>
+        <input type="text" id="assessoriaTecnica" name="assessoriaTecnica" required><br><br>
+
+        <label for="gerenciaAbordagem">Gerência de Abordagem:</label>
+        <input type="text" id="gerenciaAbordagem" name="gerenciaAbordagem" required><br><br>
+
+        <label for="gerenciaNAAS">Gerência NAAS:</label>
+        <input type="text" id="gerenciaNAAS" name="gerenciaNAAS" required><br><br>
+
+        <label for="gerenciaMonitoramento">Gerência de Monitoramento:</label>
+        <input type="text" id="gerenciaMonitoramento" name="gerenciaMonitoramento" required><br><br>
+
+        <button type="submit">Salvar</button>
+    </form>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+        import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
+
+        // Configuração do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyDkqzz4CysFFcWh2SnYCRiYg0yM3V6ePQ0",
+            authDomain: "fechamento-de-plantao-9c4b0.firebaseapp.com",
+            projectId: "fechamento-de-plantao-9c4b0",
+            storageBucket: "fechamento-de-plantao-9c4b0.appspot.com",
+            messagingSenderId: "926334242810",
+            appId: "1:926334242810:web:a90df0b4701a08f6e35e43",
+            measurementId: "G-96LE9E6H3Z"
+        };
+
+        // Inicializa o Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Função para carregar os cargos existentes no Firestore
+        async function carregarCargos() {
+            const cargosRef = doc(db, "config", "cargos");
+            const cargosDoc = await getDoc(cargosRef);
+
+            if (cargosDoc.exists()) {
+                const dados = cargosDoc.data();
+                document.getElementById('coordenadorGeral').value = dados.coordenadorGeral || '';
+                document.getElementById('assessoriaTecnica').value = dados.assessoriaTecnica || '';
+                document.getElementById('gerenciaAbordagem').value = dados.gerenciaAbordagem || '';
+                document.getElementById('gerenciaNAAS').value = dados.gerenciaNAAS || '';
+                document.getElementById('gerenciaMonitoramento').value = dados.gerenciaMonitoramento || '';
+            }
+        }
+
+        // Função para salvar os cargos no Firestore
+        document.getElementById('editCargosForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const cargos = {
+                coordenadorGeral: document.getElementById('coordenadorGeral').value,
+                assessoriaTecnica: document.getElementById('assessoriaTecnica').value,
+                gerenciaAbordagem: document.getElementById('gerenciaAbordagem').value,
+                gerenciaNAAS: document.getElementById('gerenciaNAAS').value,
+                gerenciaMonitoramento: document.getElementById('gerenciaMonitoramento').value
+            };
+
+            try {
+                await setDoc(doc(db, "config", "cargos"), cargos);
+                alert("Cargos atualizados com sucesso!");
+            } catch (error) {
+                console.error("Erro ao salvar cargos: ", error);
+            }
+        });
+
+        // Carrega os cargos quando a página for aberta
+        carregarCargos();
+    </script>
+</body>
+</html>
