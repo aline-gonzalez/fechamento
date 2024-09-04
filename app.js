@@ -26,7 +26,7 @@ document.getElementById('abrigoBtn').addEventListener('click', function(event) {
 
 // Função para abrir a janela de edição de cargos
 document.getElementById('editarCargosBtn').addEventListener('click', function() {
-    const novaJanela = window.open('edit_cargos.html', '_blank', 'width=600,height=400');
+    const novaJanela = window.open('edit_cargos.html', '_blank', 'width=600,height=800');
     if (novaJanela) {
         novaJanela.focus();
     } else {
