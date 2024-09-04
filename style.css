@@ -10,7 +10,7 @@ body {
 
 /* Logo alinhado à esquerda */
 #smas-logo {
-    width: 350px; /* Aumenta a largura do logo */
+    width: 370px; /* Aumenta a largura do logo */
     height: auto; /* Mantenha a altura proporcional */
     margin-left: 0; /* Alinhado à esquerda */
     display: block;
